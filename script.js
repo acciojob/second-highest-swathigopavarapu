@@ -1,4 +1,3 @@
-// your JS code here. If required.
 function secondHighest(arr) {
   if (arr.length < 2) return -Infinity;
 
@@ -6,7 +5,9 @@ function secondHighest(arr) {
   let second = -Infinity;
 
   for (let i = 0; i < arr.length; i++) {
-    const v = arr[i]; 
+    const v = arr[i];
+    if (!Number.isFinite(v)) continue; // skip non-numbers just in case
+
     if (v > max) {
       second = max;
       max = v;
@@ -14,7 +15,5 @@ function secondHighest(arr) {
       second = v;
     }
   }
-
   return second;
 }
-window.secondHighest = secondHighest;
