@@ -17,3 +17,4 @@ function secondHighest(arr) {
   }
   return second;
 }
+
