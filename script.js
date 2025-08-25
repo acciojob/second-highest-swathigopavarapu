@@ -12,3 +12,4 @@ function secondHighest(arr) {
 
   return unique[1]; 
 }
+window.secondHighest = secondHighest;
