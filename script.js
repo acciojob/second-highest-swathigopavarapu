@@ -18,3 +18,10 @@ function secondHighest(arr) {
 
   return second === -Infinity ? -1 : second;
 }
+console.log(secondHighest([5, 3, 1, 4, 2]));       // 4
+console.log(secondHighest([1, 1, 1]));             // -1
+console.log(secondHighest([-1, -2, -3]));          // -2
+console.log(secondHighest([10]));                  // -1
+console.log(secondHighest([]));                    // -1
+console.log(secondHighest([1, 2, 'a', 3, null]));  // 2
+console.log(secondHighest([5, 5, 5, 5, 5]));       // -1
