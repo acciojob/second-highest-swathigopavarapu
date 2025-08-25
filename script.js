@@ -1,15 +1,20 @@
-//your JS code here. If required.
+// your JS code here. If required.
 function secondHighest(arr) {
-  if (arr.length < 2) 
-	  return -Infinity;
+  if (arr.length < 2) return -Infinity;
 
-  let unique = [...new Set(arr)];
+  let max = -Infinity;
+  let second = -Infinity;
 
-  if (unique.length < 2)
-	  return -Infinity; 
+  for (let i = 0; i < arr.length; i++) {
+    const v = arr[i]; 
+    if (v > max) {
+      second = max;
+      max = v;
+    } else if (v < max && v > second) {
+      second = v;
+    }
+  }
 
-  unique.sort((a, b) => b - a);
-
-  return unique[1]; 
+  return second;
 }
 window.secondHighest = secondHighest;
