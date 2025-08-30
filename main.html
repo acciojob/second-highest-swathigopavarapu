@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
 	<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
+			// Convert all elements to numbers
+			arr = arr.map(Number);
+
+			// If array is empty or has only 1 element
+			if (arr.length < 2) return -Infinity;
+
+			// Remove duplicates
+			let unique = [...new Set(arr)];
+
+			// If all elements were the same
+			if (unique.length < 2) return -Infinity;
+
+			// Sort in descending order
+			unique.sort((a, b) => b - a);
+
+			// Return second highest
+			return unique[1];
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
+			var n = parseInt(prompt("Enter the number of elements"));
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = parseInt(prompt("Enter element " + (i + 1)));
 			}
 			alert(secondHighest(arr));
 		}
 		Main();
 	</script>
-
-    <script type="text/javascript" src="./script.js">
-</script>
-
 </body>
-
 </html>
