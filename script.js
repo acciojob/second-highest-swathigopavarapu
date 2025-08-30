@@ -1,22 +1,18 @@
 function secondHighest(arr) {
   if (!arr || arr.length < 2) return -Infinity;
 
-  // Remove duplicates
-  let uniqueArr = [...new Set(arr)];
-
-  if (uniqueArr.length < 2) return -Infinity;
-
   let max = -Infinity;
   let second = -Infinity;
 
-  for (let num of uniqueArr) {
+  for (let num of arr) {
     if (num > max) {
       second = max;
       max = num;
-    } else if (num > second && num < max) {
+    } else if (num < max && num > second) {
       second = num;
     }
   }
 
-  return second;
+  // if second never updated OR all elements same
+  return second === -Infinity ? -Infinity : second;
 }
