@@ -1,16 +1,17 @@
 function secondHighest(arr) {
+  if (!arr || arr.length < 2) return -Infinity;
+
   let max = -Infinity;
   let second = -Infinity;
 
-  for (const v of arr) {
-    if (typeof v !== "number" || !Number.isFinite(v)) continue; // ignore non-numerics, NaN, ±Infinity
-
-    if (v > max) {
+  for (let num of arr) {
+    if (num > max) {
       second = max;
-      max = v;
-    } else if (v < max && v > second) {
-      second = v;
+      max = num;
+    } else if (num < max && num > second) {
+      second = num;
     }
   }
-  return second === -Infinity ? -1 : second;
+
+  return second === -Infinity ? -Infinity : second;
 }
